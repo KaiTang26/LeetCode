@@ -1,18 +1,18 @@
 function isPalindrome(s) {
-  const stringS = s.toLowerCase().replace(/[\W_]/g, "");
-  let left = 0;
-  let right = stringS.length - 1;
+  const processedS = s.replace(/\W/g, "").toLowerCase();
+  let starter = 0;
+  let ender = processedS.length - 1;
 
-  while (left < right) {
-    if (stringS[left] !== stringS[right]) {
+  while (ender > starter) {
+    if (processedS[starter] !== processedS[ender]) {
       return false;
     }
-
-    left++;
-    right--;
+    starter++;
+    ender--;
   }
-
   return true;
 }
+
+console.log(isPalindrome("A man, a plan, v anal: Panama"));
 
 module.exports = isPalindrome;
